@@ -1,0 +1,33 @@
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="256dp"
+    android:height="256dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <!-- Simple Android-style robot icon -->
+    <path
+        android:fillColor="#3DDC84"
+        android:pathData="M16,26c0,-6.627 5.373,-12 12,-12h8c6.627,0 12,5.373 12,12v18c0,4.418 -3.582,8 -8,8H24c-4.418,0 -8,-3.582 -8,-8V26z" />
+
+    <path
+        android:fillColor="#3DDC84"
+        android:pathData="M20,14l-4,-6 2,-1.333 4,6z" />
+    <path
+        android:fillColor="#3DDC84"
+        android:pathData="M44,14l4,-6 -2,-1.333 -4,6z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M26,30m-2,0a2,2 0,1 0,4 0a2,2 0,1 0,-4 0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,30m-2,0a2,2 0,1 0,4 0a2,2 0,1 0,-4 0" />
+
+    <path
+        android:fillColor="#3DDC84"
+        android:pathData="M12,28c0,-2.209 1.791,-4 4,-4h0v24h0c-2.209,0 -4,-1.791 -4,-4v-16z" />
+    <path
+        android:fillColor="#3DDC84"
+        android:pathData="M48,24h0c2.209,0 4,1.791 4,4v16c0,2.209 -1.791,4 -4,4h0v-24z" />
+</vector>
+
