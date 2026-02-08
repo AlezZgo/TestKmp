@@ -1,4 +1,6 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -11,6 +13,9 @@ plugins {
 
 kotlin {
     androidTarget {
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        instrumentedTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
+
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
@@ -49,6 +54,7 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+            implementation(libs.compose.uiTest)
         }
     }
 }
@@ -63,6 +69,7 @@ android {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     packaging {
         resources {
@@ -82,5 +89,7 @@ android {
 
 dependencies {
     debugImplementation(libs.compose.uiTooling)
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4-android:1.10.0")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.10.0")
 }
 

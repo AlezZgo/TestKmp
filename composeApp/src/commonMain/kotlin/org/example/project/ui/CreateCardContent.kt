@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import org.example.project.createcard.CreateCardComponent
@@ -38,7 +39,9 @@ fun CreateCardContent(
         )
 
         OutlinedTextField(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag(UiTags.CreateFirstNameField),
             value = model.firstName,
             onValueChange = component::onFirstNameChanged,
             singleLine = true,
@@ -46,7 +49,9 @@ fun CreateCardContent(
         )
 
         OutlinedTextField(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag(UiTags.CreateLastNameField),
             value = model.lastName,
             onValueChange = component::onLastNameChanged,
             singleLine = true,
@@ -59,11 +64,15 @@ fun CreateCardContent(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.End,
         ) {
-            Button(onClick = component::onBackClicked) {
+            Button(
+                modifier = Modifier.testTag(UiTags.CreateBackButton),
+                onClick = component::onBackClicked,
+            ) {
                 Text("Назад")
             }
             Spacer(Modifier.width(12.dp))
             Button(
+                modifier = Modifier.testTag(UiTags.CreateSubmitButton),
                 onClick = component::onCreateClicked,
                 enabled = model.isValid,
             ) {

@@ -1,6 +1,7 @@
 package org.example.project.root
 
 import com.arkivanov.decompose.ComponentContext
+import com.arkivanov.decompose.DelicateDecomposeApi
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.router.stack.StackNavigation
 import com.arkivanov.decompose.router.stack.childStack
@@ -14,6 +15,7 @@ import org.example.project.cards.Card
 import org.example.project.createcard.CreateCardComponent
 import org.example.project.home.HomeComponent
 
+@OptIn(DelicateDecomposeApi::class)
 internal class DefaultRootComponent(
     componentContext: ComponentContext,
 ) : RootComponent, ComponentContext by componentContext {

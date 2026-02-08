@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import org.example.project.cards.Card
@@ -44,7 +45,10 @@ fun HomeContent(
                 style = MaterialTheme.typography.headlineSmall,
             )
             Spacer(Modifier.width(12.dp))
-            Button(onClick = component::onCreateCardClicked) {
+            Button(
+                modifier = Modifier.testTag(UiTags.HomeCreateCardButton),
+                onClick = component::onCreateCardClicked,
+            ) {
                 Text("Создать карточку")
             }
         }
