@@ -13,6 +13,7 @@ import com.arkivanov.essenty.lifecycle.create
 import com.arkivanov.essenty.lifecycle.resume
 import org.example.project.root.DefaultRootComponent
 import org.example.project.ui.UiTags
+import org.example.project.test.step
 import kotlin.test.Test
 
 class CardCreationUiTest {
@@ -32,13 +33,19 @@ class CardCreationUiTest {
             App(root = root)
         }
 
-        onNodeWithTag(UiTags.HomeCreateCardButton).performClick()
-
-        onNodeWithTag(UiTags.CreateFirstNameField).performTextInput("TestName")
-        onNodeWithTag(UiTags.CreateLastNameField).performTextInput("TestSurname")
-        onNodeWithTag(UiTags.CreateSubmitButton).performClick()
-
-        onNodeWithText("TestName TestSurname").assertIsDisplayed()
+        step("[1] Нажать \"Создать карточку\"") {
+            onNodeWithTag(UiTags.HomeCreateCardButton).performClick()
+        }
+        step("[2] Ввести имя и фамилию") {
+            onNodeWithTag(UiTags.CreateFirstNameField).performTextInput("TestName")
+            onNodeWithTag(UiTags.CreateLastNameField).performTextInput("TestSurname")
+        }
+        step("[3] Нажать \"Создать\"") {
+            onNodeWithTag(UiTags.CreateSubmitButton).performClick()
+        }
+        step("[4] Проверить, что карточка появилась на главном") {
+            onNodeWithText("TestName TestSurname").assertIsDisplayed()
+        }
     }
 }
 
