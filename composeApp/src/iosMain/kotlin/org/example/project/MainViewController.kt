@@ -1,5 +1,8 @@
 package org.example.project
 
-import androidx.compose.ui.window.ComposeUIViewController
+import platform.UIKit.UIViewController
 
-fun MainViewController() = ComposeUIViewController { App() }
+// Backward-compatible entrypoint (old Swift template used it).
+// The real app uses IosRootHolder + rootViewController(root).
+fun MainViewController(): UIViewController =
+    rootViewController(root = IosRootHolder().root)

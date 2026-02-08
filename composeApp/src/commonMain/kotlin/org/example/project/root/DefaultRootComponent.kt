@@ -87,10 +87,9 @@ internal class DefaultRootComponent(
 
 private class DefaultHomeComponent(
     componentContext: ComponentContext,
-    private val cards: Value<List<Card>>,
+    override val cards: Value<List<Card>>,
     private val onCreate: () -> Unit,
 ) : HomeComponent, ComponentContext by componentContext {
-    override val cards: Value<List<Card>> = this.cards
     override fun onCreateCardClicked() = onCreate()
 }
 

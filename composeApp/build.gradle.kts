@@ -43,8 +43,8 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
-            implementation(libs.decompose)
-            implementation(libs.decompose.extensions.compose)
+            api(libs.decompose)
+            api(libs.decompose.extensions.compose)
             implementation(libs.kotlinx.serialization.core)
         }
         commonTest.dependencies {
