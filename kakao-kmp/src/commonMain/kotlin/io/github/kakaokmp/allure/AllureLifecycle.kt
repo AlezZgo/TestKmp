@@ -1,7 +1,7 @@
 package io.github.kakaokmp.allure
 
 import io.github.kakaokmp.allure.model.*
-import kotlinx.datetime.Clock
+import kotlin.time.Clock
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 

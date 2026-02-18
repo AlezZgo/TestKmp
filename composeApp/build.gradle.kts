@@ -21,6 +21,8 @@ kotlin {
         }
     }
     
+    jvm()
+
     listOf(
         iosArm64(),
         iosSimulatorArm64()
@@ -34,6 +36,10 @@ kotlin {
         }
     }
     
+    sourceSets.configureEach {
+        languageSettings.optIn("androidx.compose.ui.test.ExperimentalTestApi")
+    }
+
     sourceSets {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
@@ -52,9 +58,15 @@ kotlin {
             api(libs.decompose.extensions.compose)
             implementation(libs.kotlinx.serialization.core)
         }
+        val jvmMain by getting {
+            dependencies {
+                implementation(compose.desktop.currentOs)
+            }
+        }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
             implementation(libs.compose.uiTest)
+            implementation(projects.kakaoKmp)
         }
     }
 }

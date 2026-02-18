@@ -16,15 +16,16 @@ kotlin {
         }
     }
 
+    jvm()
+
     iosArm64()
     iosSimulatorArm64()
 
     sourceSets {
         commonMain.dependencies {
             api(libs.compose.uiTest)
-            implementation(libs.kotlinx.serialization.json)
-            implementation(libs.kotlinx.io.core)
-            implementation(libs.kotlinx.datetime)
+            api(libs.kotlinx.serialization.json)
+            api(libs.kotlinx.io.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
